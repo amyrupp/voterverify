@@ -1,6 +1,6 @@
 # Voter Registration Verification
 
-This tool automates the checking of whether a given voter, or list of voters, are currently registered to vote.
+This tool automates the checking of whether a given voter, or a list of voters, are currently registered to vote.
 
 To use this tool, you will:
 
