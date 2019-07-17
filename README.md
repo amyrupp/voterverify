@@ -1,54 +1,47 @@
 # Voter Registration Verification
 
-This tool is intended to automate checking voter registration.  You can find out if a given voter, or list of voters, is registered.
+This tool automates the checking of whether a given voter, or list of voters, are currently registered to vote.
 
-Overall, the process looks like this:
+To use this tool, you will:
 
 * Get a cryptographic key (one time)
 * Generate a hash for each voter in your verification list
-* Call a web service method, providing your hashes
-* Read the responses
+* Call a web service method, providing your hash(es)
+* Read the response for each hash
 
 ### Get a key
 
-Before you can use our endpoint, you'll need credentials.  Request a key by emailing:
+You'll need credentials to use our endpoint.  Send email to help@register2vote.org stating that you need a key for Voter Verification.
 
-help@register2vote.org
+### Generate hashes
 
-### Generate a hash
+Generate a hash for each voter.  Hashes don't contain a voter's personal information, so submitting a hash to us doesn't disclose sensitive data.
 
-Generate a hash for each voter.  A hash contains no voter personal information, so submitting them to us does not disclose sensitive data.
-
-We have a javascript file that you can use to generate hashes...
+This javascript file generates hashes:
 
   <<makeHash.js>>
 
-You can use the javascript file to discover the algorithm if you wish to implement it in another language.
+Refer to the algorithm in the javascript file if you want to write a similar tool in a different language.
 
 ### Call a web service
 
 GET: 1 hash per request
 POST: 100 or fewer hashes per request -> json[]
 
+#### GET
+
+https://civintel-endpoints-4r6lbwbrta-uc.a.run.app/api/voter/verify
+
+#### POST
+
+https://civintel-endpoints-4r6lbwbrta-uc.a.run.app/api/voter/verifyList
+
 For Postman users:
 
   <<Postman config>>
 
-#### GET
-
-https://civintel.appspot.com/api/voter/verify?hash=${hash}
-
-
-#### POST
-https://civintel.appspot.com/api/voter/verifyList
-
-Content-Type: application/json
-
-Body:
-
-
 ### POWER USERS
 
-After authenticating with your Google Cloud account, access the API documentation:
+Documentation of this API is here: (requires authentication with your Google Cloud account)
 
-https://endpointsportal.civintel.cloud.goog/docs/civintel-endpoints-4r6lbwbrta-uc.a.run.app/0/routes/voter/verifyList/post
+https://endpointsportal.civintel.cloud.goog/docs/civintel-endpoints-4r6lbwbrta-uc.a.run.app/0/types/VoterVerification
