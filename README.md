@@ -17,9 +17,9 @@ You'll need credentials to use our endpoint.  Send email to help@register2vote.o
 
 Generate a hash for each voter.  Hashes don't contain a voter's personal information, so submitting a hash to us doesn't disclose sensitive data.
 
-This javascript file generates hashes:
+We have a javascript file that you can use to generate hashes. It's located here:
 
-  <<makeHash.js>>
+https://github.com/register2vote/voterverify/
 
 Refer to the algorithm in the javascript file if you want to write a similar tool in a different language.
 
@@ -28,17 +28,17 @@ Refer to the algorithm in the javascript file if you want to write a similar too
 GET: 1 hash per request
 POST: 100 or fewer hashes per request -> json[]
 
-#### GET
+### GET
 
-https://civintel-endpoints-4r6lbwbrta-uc.a.run.app/api/voter/verify
+https://civintel-endpoints-4r6lbwbrta-uc.a.run.app/api/voter/verify?key=${key}&hash=${hash}
 
-#### POST
+### POST
 
-https://civintel-endpoints-4r6lbwbrta-uc.a.run.app/api/voter/verifyList
+https://civintel-endpoints-4r6lbwbrta-uc.a.run.app/api/voter/verifyList?key=${key}
 
-For Postman users:
+Content-Type: application/json
 
-  <<Postman config>>
+Body: [Hash1, Hash2, ... ]
 
 ### POWER USERS
 
