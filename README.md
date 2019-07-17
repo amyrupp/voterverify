@@ -26,6 +26,7 @@ Refer to the algorithm in the javascript file if you want to write a similar too
 ### Call a web service
 
 GET: 1 hash per request
+
 POST: 100 or fewer hashes per request -> json[]
 
 ### GET
